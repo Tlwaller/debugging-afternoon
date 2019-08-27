@@ -16,6 +16,7 @@ class StoreFront extends Component {
     })
     return (
       <div className="storefront-container">
+        {productDisplay}
       </div>
     )
   }

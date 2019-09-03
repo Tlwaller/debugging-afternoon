@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import axios from "axios";
 import StoreFront from "./Components/StoreFront/StoreFront";
 import ShoppingCart from "./Components/ShoppingCart/ShoppingCart";
 import NavBar from "./Components/NavBar/NavBar";
+import axios from "axios";
 
 class App extends Component {
   constructor(props) {
@@ -31,7 +31,7 @@ class App extends Component {
     });
   }
   removeFromCart(index) {
-    let cartCopy = [...this.state.cart]
+    let cartCopy = this.state.cart.slice();
     cartCopy.splice(index, 1);
     this.setState({
       cart: cartCopy
@@ -39,13 +39,9 @@ class App extends Component {
   }
   navigate(location) {
     if (location === "cart") {
-      this.setState({
-        showCart: true
-      });
+      this.setState({showCart: true})
     } else {
-      this.setState({
-        showCart: false
-      });
+      this.setState({showCart: false})
     }
   }
   render() {
